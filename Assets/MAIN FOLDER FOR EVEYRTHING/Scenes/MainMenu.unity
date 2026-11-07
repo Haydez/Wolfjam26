@@ -2867,7 +2867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2034639135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2970,11 +2970,11 @@ MonoBehaviour:
   fadeIn: 1.5
   hold: 2
   fadeOut: 1.5
-  menuMusic: {fileID: 0}
   menu: {fileID: 1518143403}
   optionsPanel: {fileID: 773668289}
   creditsPanel: {fileID: 58150165}
   menuFadeIn: 0.8
+  menuMusic: {fileID: 2034639141}
   gameSceneName: MainGame
   fadeToGame: 1
 --- !u!82 &2034639140
@@ -2990,7 +2990,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 673a08e6b6392cd4789b1d72d54b71ea, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.481
+  m_Volume: 0.153
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3087,7 +3087,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: c526ab819ed59c44183fd51efd492b13, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.11
   m_Pitch: 1
   Loop: 1
   Mute: 0

@@ -10,14 +10,13 @@ public class MenuController : MonoBehaviour
     [SerializeField] CanvasGroup logo;
     [SerializeField] float fadeIn = 1.5f, hold = 2f, fadeOut = 1.5f;
 
-    [Header("Music")]
-    [SerializeField] AudioSource menuMusic;
-
-
     [Header("Menu")]
     [SerializeField] CanvasGroup menu;
     [SerializeField] GameObject optionsPanel, creditsPanel;
     [SerializeField] float menuFadeIn = 0.8f;
+
+    [Header("Music")]
+    [SerializeField] AudioSource menuMusic;
 
     [Header("Start Game")]
     [SerializeField] string gameSceneName = "MainGame";
@@ -42,6 +41,7 @@ public class MenuController : MonoBehaviour
         }
 
         splash.SetActive(false);
+        if (menuMusic != null) menuMusic.Play();
         menu.gameObject.SetActive(true);
         menu.alpha = 0;
         menu.interactable = false;
@@ -49,7 +49,7 @@ public class MenuController : MonoBehaviour
         menu.interactable = true;
     }
 
-    // ---- button functions ----
+    // ---- Button functions ----
 
     public void StartGame()
     {
@@ -70,23 +70,17 @@ public class MenuController : MonoBehaviour
         menu.interactable = false;
         ClosePanels();
 
-        // load the game in the background while the menu fades to black
+        // Load the game in the background while the menu fades to black
         AsyncOperation load = SceneManager.LoadSceneAsync(gameSceneName);
         load.allowSceneActivation = false;
 
+        if (menuMusic != null) StartCoroutine(FadeOutMusic(fadeToGame));
         yield return Fade(menu, menu.alpha, 0, fadeToGame, false);
 
         while (load.progress < 0.9f)   // 0.9 = loaded and waiting to switch
             yield return null;
 
         load.allowSceneActivation = true;
-    }
-
-    IEnumerator FadeOutMusic(float time)
-    {
-        for (float t = 0; t < time; time += Time.deltaTime);
-
-        yield return null;
     }
 
     public void OpenOptions()  => optionsPanel.SetActive(true);
@@ -101,7 +95,7 @@ public class MenuController : MonoBehaviour
 #endif
     }
 
-    // ---- helpers ----
+    // ---- Helpers ----
 
     IEnumerator Fade(CanvasGroup g, float from, float to, float time, bool skippable)
     {
@@ -112,6 +106,17 @@ public class MenuController : MonoBehaviour
             yield return null;
         }
         g.alpha = to;
+    }
+
+    IEnumerator FadeOutMusic(float time)
+    {
+        float startVolume = menuMusic.volume;
+        for (float t = 0; t < time; t += Time.deltaTime)
+        {
+            menuMusic.volume = Mathf.Lerp(startVolume, 0, t / time);
+            yield return null;
+        }
+        menuMusic.volume = 0;
     }
 
     IEnumerator Wait(float time)
