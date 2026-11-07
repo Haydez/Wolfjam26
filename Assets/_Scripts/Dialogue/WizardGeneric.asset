@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596e78bc42dd47746b5c2aca0af9beb9, type: 3}
+  m_Name: WizardGeneric
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  themeTrack: {fileID: 0}
+  lines:
+  - characterName: Tower Wizard
+    portrait: {fileID: 21300000, guid: 592423723f7c91843a92305140a42e6d, type: 3}
+    text: To become more visible get me the magic beans from Clown Wizard school
+    typingSound: {fileID: 8300000, guid: a4928158d3aa86e439d5ccccadd85d91, type: 3}
+    effect: 0
+    typingSpeed: 0.05
+    expression: 0
+    emoteTrigger: 
+  - characterName: Tower Wizard
+    portrait: {fileID: 21300000, guid: 592423723f7c91843a92305140a42e6d, type: 3}
+    text: The fertilizer of a cool guy from the Hallo-Party
+    typingSound: {fileID: 8300000, guid: a4928158d3aa86e439d5ccccadd85d91, type: 3}
+    effect: 0
+    typingSpeed: 0.05
+    expression: 0
+    emoteTrigger: 
+  - characterName: Tower Wizard
+    portrait: {fileID: 21300000, guid: 592423723f7c91843a92305140a42e6d, type: 3}
+    text: And the trendy mineral water from Cave-Mart.
+    typingSound: {fileID: 8300000, guid: a4928158d3aa86e439d5ccccadd85d91, type: 3}
+    effect: 0
+    typingSpeed: 0.05
+    expression: 0
+    emoteTrigger: 
