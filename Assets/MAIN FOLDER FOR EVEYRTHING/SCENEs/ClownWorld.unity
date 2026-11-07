@@ -1819,7 +1819,7 @@ MonoBehaviour:
   edgeShadowWidth: 24
   edgeShadowColor: {r: 0, g: 0, b: 0, a: 0.6}
   pushInAmount: 0.08
-  sound: {fileID: 0}
+  sound: {fileID: 8300000, guid: 457399f99860d944caeca6dda846a3ae, type: 3}
   soundVolume: 1
 --- !u!114 &1071858327
 MonoBehaviour:
@@ -1841,7 +1841,7 @@ MonoBehaviour:
   dipColor: {r: 0, g: 0, b: 0, a: 1}
   dipAmount: 0
   liveEntry: 1
-  sound: {fileID: 0}
+  sound: {fileID: 8300000, guid: 722edaa50cda2fa4cb3c4e8c6bea8455, type: 3}
   soundVolume: 1
 --- !u!114 &1071858328
 MonoBehaviour:
@@ -2136,7 +2136,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d5b305d3ff2ae33469c49d5ddee0fc73, type: 2}
+  - {fileID: 2100000, guid: c383b105f10dfcb4487a221c47c66143, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2313,13 +2313,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551866620}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.17464344, y: -0, z: -0, w: 0.9846317}
+  m_LocalRotation: {x: -0.00030422592, y: 0.9846303, z: -0.17464316, w: 0.0017152108}
   m_LocalPosition: {x: -18.561, y: 1.172, z: 11.8}
   m_LocalScale: {x: 0.04543182, y: 0.04543182, z: 0.04543182}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -20.116, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20.116, y: 179.787, z: -0.073}
 --- !u!1 &1623238986
 GameObject:
   m_ObjectHideFlags: 0

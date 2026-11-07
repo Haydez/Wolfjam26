@@ -884,7 +884,7 @@ MonoBehaviour:
   edgeShadowWidth: 24
   edgeShadowColor: {r: 0.24528301, g: 0.18664648, b: 0.11372549, a: 1}
   pushInAmount: 0.08
-  sound: {fileID: 0}
+  sound: {fileID: 8300000, guid: 457399f99860d944caeca6dda846a3ae, type: 3}
   soundVolume: 1
 --- !u!114 &695771702
 MonoBehaviour:
@@ -906,7 +906,7 @@ MonoBehaviour:
   dipColor: {r: 0, g: 0, b: 0, a: 1}
   dipAmount: 0
   liveEntry: 1
-  sound: {fileID: 0}
+  sound: {fileID: 8300000, guid: 722edaa50cda2fa4cb3c4e8c6bea8455, type: 3}
   soundVolume: 1
 --- !u!114 &695771703
 MonoBehaviour:
