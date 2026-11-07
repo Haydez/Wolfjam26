@@ -75,6 +75,14 @@ public class NPCInteraction : MonoBehaviour
             yield break;
         }
 
+        PlayerController playerController = playerObj.GetComponent<PlayerController>();
+
+        // 1. Freeze player movement and clear input
+        if (playerController != null)
+        {
+            playerController.SetControl(false);
+        }
+
         // If it's a character, snap to face the player in 4 cardinal directions
         if (isCharacter)
         {
@@ -87,6 +95,7 @@ public class NPCInteraction : MonoBehaviour
         {
             dialogueUI.StartDialogue(chosenDialogue, this);
 
+            // Wait until the dialogue panel closes / dialogue stops happening
             while (dialogueUI.dialogueHappening)
             {
                 yield return null;
@@ -95,6 +104,12 @@ public class NPCInteraction : MonoBehaviour
         else
         {
             Debug.LogWarning($"[NPCInteraction] No valid dialogue found on {gameObject.name}. Aborting conversation safely.");
+        }
+
+        // 2. Unfreeze player movement safely when conversation ends
+        if (playerController != null)
+        {
+            playerController.SetControl(true);
         }
 
         isCurrentlyTalking = false;
@@ -107,10 +122,8 @@ public class NPCInteraction : MonoBehaviour
 
         if (directionToPlayer == Vector3.zero) return;
 
-        // Determine whether the primary offset is along X or Z axis to snap 90 degrees
         if (Mathf.Abs(directionToPlayer.x) > Mathf.Abs(directionToPlayer.z))
         {
-            // Snap East or West
             if (directionToPlayer.x > 0)
                 transform.rotation = Quaternion.Euler(0, 90, 0);
             else
@@ -118,7 +131,6 @@ public class NPCInteraction : MonoBehaviour
         }
         else
         {
-            // Snap North or South
             if (directionToPlayer.z > 0)
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             else

@@ -35,13 +35,13 @@ public class DialogueUI : MonoBehaviour
         if (dialoguePanel != null) dialoguePanel.SetActive(false);
     }
 
-    public void DisableControlForInteraction()
+    /*public void DisableControlForInteraction()
     {
         if (playerMovementScript != null)
         {
-            //playerMovementScript.ToggleControl();
+            playerMovementScript.ToggleControl();
         }
-    }
+    }*/
 
     public void StartDialogue(DialogueData data, NPCInteraction npc)
     {
@@ -101,18 +101,16 @@ public class DialogueUI : MonoBehaviour
         dialogueHappening = false;
         canInput = false;
 
-        
-
         activeNPC = null;
         currentLineData = null;
         if (dialoguePanel != null) dialoguePanel.SetActive(false);
 
         if (musicSource != null) musicSource.Stop();
 
-        if (playerMovementScript != null)
+        /*if (playerMovementScript != null)
         {
-            // playerMovementScript.ToggleControl();
-        }
+            playerMovementScript.ToggleControl();
+        }*/
     }
 
     IEnumerator PlayLine()
@@ -121,8 +119,6 @@ public class DialogueUI : MonoBehaviour
         isTyping = true;
         cancelTyping = false;
         currentLineData = currentDialogue.lines[lineIndex];
-
-    
 
         nameDisplay.text = currentLineData.characterName;
         textDisplay.text = currentLineData.text;
@@ -167,7 +163,6 @@ public class DialogueUI : MonoBehaviour
         }
 
         isTyping = false;
-       
     }
 
     void LateUpdate()
@@ -211,10 +206,14 @@ public class DialogueUI : MonoBehaviour
     {
         switch (effect)
         {
-            case TextEffect.Wiggle: return pos + new Vector3(0, Mathf.Sin(Time.time * 10f + charIndex * 0.5f) * 5f, 0);
-            case TextEffect.Slam: return pos + ((pos - center) * 0.5f) + new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), 0);
-            case TextEffect.Small: return pos - ((pos - center) * 0.4f);
-            default: return pos;
+            case TextEffect.Wiggle:
+                return pos + new Vector3(0, Mathf.Sin(Time.time * 10f + charIndex * 0.5f) * 5f, 0);
+            case TextEffect.Slam:
+                return pos + ((pos - center) * 0.5f) + new Vector3(Random.Range(-2f, 2f), Random.Range(-2f, 2f), 0);
+            case TextEffect.Small:
+                return pos - ((pos - center) * 0.4f);
+            default:
+                return pos;
         }
     }
 }
