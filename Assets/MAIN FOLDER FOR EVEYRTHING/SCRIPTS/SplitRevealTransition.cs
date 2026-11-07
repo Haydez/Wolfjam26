@@ -5,7 +5,20 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
+/// <summary>
+/// "Door opening" split reveal: the current frame splits down the middle and
+/// the two halves slide apart to reveal the next scene behind them.
+///
+/// Setup: put this on the same persistent GameObject as BatSpinTransition /
+/// PixelateTransition (in your first scene). Trigger it with
+/// SplitRevealTransition.Play("SceneName"), or pick "Split Reveal" on a SceneDoor.
+///
+/// Sequence:
+///   Freeze : the current frame is captured and split into two halves.
+///   Load   : the next scene loads behind the closed halves.
+///   Crack  : the halves part slightly, so light from the new scene shows through the seam.
+///   Open   : the halves swing out to the sides while the new scene pushes in slightly.
+/// </summary>
 public class SplitRevealTransition : MonoBehaviour
 {
     public enum SplitDirection { Vertical, Horizontal }
@@ -53,6 +66,7 @@ public class SplitRevealTransition : MonoBehaviour
 
     // ------------------------------------------------------------------ public API
 
+    /// <summary>Split-reveal into another scene.</summary>
     public static void Play(string sceneName)
     {
         if (Instance == null)
@@ -62,7 +76,41 @@ public class SplitRevealTransition : MonoBehaviour
             return;
         }
         if (IsTransitioning) return;
-        Instance.StartCoroutine(Instance.Run(sceneName));
+        Instance.StartCoroutine(Instance.Run(LoadScene(sceneName)));
+    }
+
+    /// <summary>
+    /// Split-reveal within the SAME scene. The doors close over the current view,
+    /// <paramref name="whileHidden"/> runs (e.g. teleport the player), then the doors
+    /// open onto the new view.
+    /// </summary>
+    public static void PlayInScene(Action whileHidden)
+    {
+        if (Instance == null)
+        {
+            Debug.LogWarning("SplitRevealTransition: no instance in the scene. Running without transition.");
+            whileHidden?.Invoke();
+            return;
+        }
+        if (IsTransitioning) return;
+        Instance.StartCoroutine(Instance.Run(RunAction(whileHidden)));
+    }
+
+    static IEnumerator LoadScene(string sceneName)
+    {
+        AsyncOperation load = SceneManager.LoadSceneAsync(sceneName);
+        load.allowSceneActivation = false;
+        while (load.progress < 0.9f) yield return null;
+        load.allowSceneActivation = true;
+        while (!load.isDone) yield return null;
+    }
+
+    static IEnumerator RunAction(Action action)
+    {
+        action?.Invoke();
+        // Give follow cameras a couple of frames to catch up with the teleported player.
+        yield return null;
+        yield return null;
     }
 
     // ------------------------------------------------------------------ setup
@@ -87,11 +135,11 @@ public class SplitRevealTransition : MonoBehaviour
         canvas = canvasGO.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvas.sortingOrder = 32000;
-        canvasGO.AddComponent<CanvasScaler>(); // constant pixel size
+        canvasGO.AddComponent<CanvasScaler>(); // constant pixel size: 1 UI unit = 1 screen pixel
         canvasGO.AddComponent<GraphicRaycaster>();
         root = (RectTransform)canvasGO.transform;
 
-        // view of the new scene
+        // Live view of the new scene (used only for the push-in zoom).
         behindRect = CreateChild("NewScene", root);
         Stretch(behindRect);
         behindImage = behindRect.gameObject.AddComponent<RawImage>();
@@ -119,7 +167,8 @@ public class SplitRevealTransition : MonoBehaviour
         return rt;
     }
 
-    // lays out both doors to exactly cover their half of the screen
+    // Lays out both doors to exactly cover their half of the screen,
+    // showing the matching half of the captured frame.
     void LayoutDoors()
     {
         bool vertical = direction == SplitDirection.Vertical;
@@ -143,14 +192,14 @@ public class SplitRevealTransition : MonoBehaviour
         door.anchorMin = aMin;
         door.anchorMax = aMax;
         door.offsetMin = door.offsetMax = Vector2.zero;
-        //pivot on the outer edge so the shrink looks like a door swinging on its hinge
+        // Pivot on the OUTER edge so the shrink looks like a door swinging on its hinge.
         door.pivot = Vector2.one - innerEdge;
         door.anchoredPosition = Vector2.zero;
         door.localScale = Vector3.one;
         image.uvRect = uv;
         image.color = Color.white;
 
-        // inner shadow strip for depth for doors
+        // Shadow strip along the inner (seam) edge.
         if (door.childCount > 0)
         {
             var shadow = (RectTransform)door.GetChild(0);
@@ -168,12 +217,13 @@ public class SplitRevealTransition : MonoBehaviour
 
     // ------------------------------------------------------------------ the transition
 
-    IEnumerator Run(string sceneName)
+    // swap = whatever happens while the doors are closed (scene load or in-scene teleport).
+    IEnumerator Run(IEnumerator swap)
     {
         IsTransitioning = true;
         TransitionStarted?.Invoke();
 
-        // freeze the current frame.
+        // 1) Freeze the current frame.
         yield return new WaitForEndOfFrame();
         Texture2D oldShot = ScreenCapture.CaptureScreenshotAsTexture();
 
@@ -183,18 +233,13 @@ public class SplitRevealTransition : MonoBehaviour
         behindImage.enabled = false;
         canvas.enabled = true;
 
-        // load the next scene behind the closed doors
-        AsyncOperation load = SceneManager.LoadSceneAsync(sceneName);
-        load.allowSceneActivation = false;
+        // 2) Swap what's behind the closed doors (load a scene, or teleport the player).
+        float closedAt = Time.unscaledTime;
+        yield return swap;
+        while (Time.unscaledTime - closedAt < startDelay) yield return null;
+        yield return null; // let the new view run Start() / place its camera
 
-        for (float t = 0f; t < startDelay || load.progress < 0.9f; t += Time.unscaledDeltaTime)
-            yield return null;
-
-        load.allowSceneActivation = true;
-        while (!load.isDone) yield return null;
-        yield return null; // let the new scene run Start() and place its camera
-
-        // live render of new scene
+        // Optional live render of the new scene so it can "push in" behind the doors.
         Camera cam = Camera.main;
         RenderTexture live = null;
         if (pushInAmount > 0f && cam != null)
@@ -214,7 +259,7 @@ public class SplitRevealTransition : MonoBehaviour
 
         SetShadows(edgeShadowWidth > 0f);
 
-        // doors part a little and pause
+        // 3) Crack: doors part a little and pause.
         for (float t = 0f; t < crackDuration; t += Time.unscaledDeltaTime)
         {
             float e = EaseOutCubic(t / crackDuration);
@@ -230,7 +275,7 @@ public class SplitRevealTransition : MonoBehaviour
             yield return null;
         }
 
-        // doors swing fully out while the new scene settles
+        // 4) Open: doors swing fully out while the new scene settles.
         float start = halfSize * crackAmount;
         float end = halfSize * (1f + doorShrink) + edgeShadowWidth + 2f; // fully off-screen
         for (float t = 0f; t < openDuration; t += Time.unscaledDeltaTime)
@@ -247,7 +292,7 @@ public class SplitRevealTransition : MonoBehaviour
             yield return null;
         }
 
-        // back to the live scene
+        // 5) Hand back to the live scene.
         canvas.enabled = false;
         doorAImage.texture = doorBImage.texture = null;
         behindImage.texture = null;
@@ -259,8 +304,8 @@ public class SplitRevealTransition : MonoBehaviour
         TransitionFinished?.Invoke();
     }
 
-    // offset = how far each door has moved away from the seam 
-    // openness = drives the shrink and darkening
+    // offset = how far each door has moved away from the seam (pixels).
+    // openness = 0..1, drives the shrink and darkening.
     void PlaceDoors(float offset, float openness)
     {
         bool vertical = direction == SplitDirection.Vertical;
@@ -269,7 +314,7 @@ public class SplitRevealTransition : MonoBehaviour
         doorA.anchoredPosition = -dir * offset;
         doorB.anchoredPosition =  dir * offset;
 
-        // shrink only across the split axis' perpendicular, like a door turning on its hinge
+        // Shrink only across the split axis' perpendicular, like a door turning on its hinge.
         float s = 1f - doorShrink * openness;
         Vector3 scale = vertical ? new Vector3(s, 1f - doorShrink * 0.5f * openness, 1f)
                                  : new Vector3(1f - doorShrink * 0.5f * openness, s, 1f);

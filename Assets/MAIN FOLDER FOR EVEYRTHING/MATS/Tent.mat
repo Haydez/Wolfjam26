@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 8bc6c9313be139949801dd23443e90ba, type: 3}
+        m_Texture: {fileID: 2800000, guid: cfe65819a9bab374cad209a66dea6ec2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BrushTexture:
@@ -107,7 +107,7 @@ Material:
     - _BStrength: 1.03
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _Boil: 11.07
+    - _Boil: 5
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
