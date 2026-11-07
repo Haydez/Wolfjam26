@@ -29,7 +29,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BrushTexture:
-        m_Texture: {fileID: 2800000, guid: 1ae50096a6d8086408375e437396eb7b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 553f8bc0d1c15a5418611179dc00f0bd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -94,7 +94,7 @@ Material:
     - _BStrength: 1.03
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _Boil: 1.88
+    - _Boil: 5
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -108,6 +108,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _Intensity: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -127,7 +128,7 @@ Material:
     - _BaseColor: {r: 0.3679245, g: 0.012148458, b: 0.012148458, a: 0.7019608}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ShadowColor: {r: 0.15512636, g: 0.3962264, b: 0.24087842, a: 1}
+    - _ShadowColor: {r: 0.17021182, g: 0.4245283, b: 0.25776342, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
