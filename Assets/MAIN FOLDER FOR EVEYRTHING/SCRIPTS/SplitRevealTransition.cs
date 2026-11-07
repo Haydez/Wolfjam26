@@ -5,17 +5,7 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-/// <summary>
-/// the current frame splits down the middle and
-/// the two halves slide apart to reveal the next scene behind them
 
-
-/// Sequence:
-///   Freeze : the current frame is captured and split into two halves.
-///   Load   : the next scene loads behind the closed halves.
-///   Crack  : the halves part slightly, so light from the new scene shows through the seam.
-///   Open   : the halves swing out to the sides while the new scene pushes in slightly.
-/// </summary>
 public class SplitRevealTransition : MonoBehaviour
 {
     public enum SplitDirection { Vertical, Horizontal }
