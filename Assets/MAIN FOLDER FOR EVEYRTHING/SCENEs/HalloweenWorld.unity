@@ -523,6 +523,112 @@ MonoBehaviour:
   matchRotation: 1
   playerTag: Player
   cooldown: 0.5
+--- !u!1001 &512049496
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: b9815b2a739f39d43984c3ca1b0f7ffa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -27.745733
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b9815b2a739f39d43984c3ca1b0f7ffa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.020119
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b9815b2a739f39d43984c3ca1b0f7ffa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.302285
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b9815b2a739f39d43984c3ca1b0f7ffa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b9815b2a739f39d43984c3ca1b0f7ffa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b9815b2a739f39d43984c3ca1b0f7ffa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b9815b2a739f39d43984c3ca1b0f7ffa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b9815b2a739f39d43984c3ca1b0f7ffa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b9815b2a739f39d43984c3ca1b0f7ffa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b9815b2a739f39d43984c3ca1b0f7ffa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7918335002988649766, guid: b9815b2a739f39d43984c3ca1b0f7ffa, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 83e5bf43f5cc2b04ebf8a41af7ccff93, type: 2}
+    - target: {fileID: 919132149155446097, guid: b9815b2a739f39d43984c3ca1b0f7ffa, type: 3}
+      propertyPath: m_Name
+      value: BowlofCandyWolfJam2026
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b9815b2a739f39d43984c3ca1b0f7ffa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 512049499}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b9815b2a739f39d43984c3ca1b0f7ffa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 512049498}
+  m_SourcePrefab: {fileID: 100100000, guid: b9815b2a739f39d43984c3ca1b0f7ffa, type: 3}
+--- !u!1 &512049497 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b9815b2a739f39d43984c3ca1b0f7ffa, type: 3}
+  m_PrefabInstance: {fileID: 512049496}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &512049498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512049497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e34360588c199ab4fb455f3703c440f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemPickup
+  itemType: 1
+--- !u!65 &512049499
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512049497}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.127905, y: 1.5973644, z: 2.083395}
+  m_Center: {x: 0.021195412, y: 0.2986822, z: -0.033358574}
 --- !u!1 &695771700
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,7 +826,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 07a45c06a354adf4990dcb5e304c4fbe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1326,6 +1432,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HalloweenHouse
       objectReference: {fileID: 0}
+    - target: {fileID: 1442450553484104045, guid: ee60116b57a08d04794408397df7c10c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bbfab87511c3c75458f9b5a9c2291530, type: 2}
+    - target: {fileID: 1442450553484104045, guid: ee60116b57a08d04794408397df7c10c, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 07a45c06a354adf4990dcb5e304c4fbe, type: 2}
+    - target: {fileID: 7339356831882890532, guid: ee60116b57a08d04794408397df7c10c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 07a45c06a354adf4990dcb5e304c4fbe, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1530,3 +1648,4 @@ SceneRoots:
   - {fileID: 1148509027}
   - {fileID: 1364964848}
   - {fileID: 1573655572}
+  - {fileID: 512049496}

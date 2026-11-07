@@ -63,7 +63,7 @@ public class StairTeleporter : MonoBehaviour
         var body = player.GetComponent<Rigidbody>();
         if (body != null && !body.isKinematic)
         {
-            body.linearVelocity = Vector3.zero;   // Unity 6 name (was "velocity")
+            body.linearVelocity = Vector3.zero; 
             body.angularVelocity = Vector3.zero;
         }
 
