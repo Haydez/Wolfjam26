@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MAIN FOLDER FOR EVEYRTHING/SCENEs/TestTransition(World2).unity
     guid: ef1773f144729384ab5731852e7be031
+  - enabled: 1
+    path: Assets/MAIN FOLDER FOR EVEYRTHING/SCENEs/TestTrasition(World3).unity
+    guid: 64ff48108a7aba44fb34313801a155a0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

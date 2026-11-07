@@ -536,6 +536,110 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1071858325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1071858329}
+  - component: {fileID: 1071858328}
+  - component: {fileID: 1071858327}
+  - component: {fileID: 1071858326}
+  m_Layer: 0
+  m_Name: Transition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1071858326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071858325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cbbd8443cd1e84459f609b3045de8fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SplitRevealTransition
+  direction: 0
+  startDelay: 0.1
+  crackDuration: 0.2
+  crackHold: 0.15
+  openDuration: 0.7
+  crackAmount: 0.04
+  doorShrink: 0.08
+  doorDarken: 0.35
+  edgeShadowWidth: 24
+  edgeShadowColor: {r: 0, g: 0, b: 0, a: 0.6}
+  pushInAmount: 0.08
+  sound: {fileID: 0}
+  soundVolume: 1
+--- !u!114 &1071858327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071858325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2368decc492b964c895b896253332d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixelateTransition
+  maxBlockSize: 48
+  steps: 8
+  pixelateOutDuration: 0.6
+  holdDuration: 0.15
+  pixelateInDuration: 0.6
+  dipColor: {r: 0, g: 0, b: 0, a: 1}
+  dipAmount: 0
+  liveEntry: 1
+  sound: {fileID: 0}
+  soundVolume: 1
+--- !u!114 &1071858328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071858325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d58c2941622748446a5e81cc02ad6d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BatSpinTransition
+  emblem: {fileID: 21300000, guid: 3c6c0938c8e65f440aa6576b3cd0700b, type: 3}
+  emblemSize: {x: 700, y: 700}
+  backdropColor: {r: 0.13652545, g: 0.17706239, b: 0.49056602, a: 1}
+  spinOutDuration: 0.55
+  emblemHold: 0.35
+  spinInDuration: 0.55
+  spinTurns: 2
+  emblemPeakScale: 1.3
+  emblemStartsAt: 0.25
+  sting: {fileID: 8300000, guid: 918a45981a45dac43822848d731bde75, type: 3}
+  stingVolume: 1
+--- !u!4 &1071858329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071858325}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.6464, y: -0, z: -10.16744}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1611952153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -878,3 +982,4 @@ SceneRoots:
   - {fileID: 28201666}
   - {fileID: 436088212}
   - {fileID: 1611952153}
+  - {fileID: 1071858329}
