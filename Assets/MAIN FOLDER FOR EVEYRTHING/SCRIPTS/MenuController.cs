@@ -19,7 +19,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] string gameSceneName = "MainGame";
     [SerializeField] float fadeToGame = 1f;
 
-    static bool splashShown;   // so returning to the menu skips the logo
+    bool splashShown;   // so returning to the menu skips the logo
     bool starting;             // stops Start being pressed twice
 
     IEnumerator Start()
