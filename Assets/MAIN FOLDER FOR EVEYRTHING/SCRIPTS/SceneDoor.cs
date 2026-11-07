@@ -16,9 +16,17 @@ public class SceneDoor : MonoBehaviour
     public static bool AnyTransitionRunning =>
         BatSpinTransition.IsTransitioning || PixelateTransition.IsTransitioning;
     
-    void OnTriggerEnter(Collider other)            => TryEnter(other.transform);
-    void OnCollisionEnter(Collision collision)      => TryEnter(collision.transform);
-    
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log($"Touched by {other.name}");
+        TryEnter(other.transform);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        TryEnter(collision.transform);
+    }
+
     void TryEnter(Transform touched)
     {
         if (IsPlayer(touched)) Interact();

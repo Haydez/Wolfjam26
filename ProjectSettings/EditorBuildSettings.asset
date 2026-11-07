@@ -8,6 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/MAIN FOLDER FOR EVEYRTHING/SCENEs/MainGame.unity
+    guid: ab2962c3792aaf74ca1c9e2752019122
+  - enabled: 1
+    path: Assets/MAIN FOLDER FOR EVEYRTHING/SCENEs/MainMenu.unity
+    guid: a58e79eb201e53a41abb89e1132bb22e
+  - enabled: 1
+    path: Assets/MAIN FOLDER FOR EVEYRTHING/SCENEs/TestTransition(World1).unity
+    guid: aab3568b5b9ea8448aceb49785fffab8
+  - enabled: 1
+    path: Assets/MAIN FOLDER FOR EVEYRTHING/SCENEs/TestTransition(World2).unity
+    guid: ef1773f144729384ab5731852e7be031
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
