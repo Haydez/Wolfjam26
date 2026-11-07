@@ -1893,7 +1893,7 @@ MonoBehaviour:
   emblemPeakScale: 1.3
   emblemStartsAt: 0.25
   sting: {fileID: 8300000, guid: 9eb5463275f180b44b4b5a480df1bfa8, type: 3}
-  stingVolume: 1
+  stingVolume: 0.5
 --- !u!4 &1098696902
 Transform:
   m_ObjectHideFlags: 0
