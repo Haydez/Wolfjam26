@@ -10,6 +10,10 @@ public class MenuController : MonoBehaviour
     [SerializeField] CanvasGroup logo;
     [SerializeField] float fadeIn = 1.5f, hold = 2f, fadeOut = 1.5f;
 
+    [Header("Music")]
+    [SerializeField] AudioSource menuMusic;
+
+
     [Header("Menu")]
     [SerializeField] CanvasGroup menu;
     [SerializeField] GameObject optionsPanel, creditsPanel;
@@ -76,6 +80,13 @@ public class MenuController : MonoBehaviour
             yield return null;
 
         load.allowSceneActivation = true;
+    }
+
+    IEnumerator FadeOutMusic(float time)
+    {
+        for (float t = 0; t < time; time += Time.deltaTime);
+
+        yield return null;
     }
 
     public void OpenOptions()  => optionsPanel.SetActive(true);
