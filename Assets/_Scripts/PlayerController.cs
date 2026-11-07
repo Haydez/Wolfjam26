@@ -15,9 +15,22 @@ public class PlayerController : MonoBehaviour
     public bool isHolding;
     public GameObject heldObj;
 
+    private bool canMove = true;
+
+    // Explicitly set player movement control on or off
+    public void SetControl(bool state)
+    {
+        canMove = state;
+        if (!canMove)
+        {
+            move = Vector2.zero; // Reset input so player stops immediately
+        }
+    }
+
     // wasd to move
     public void OnMove(InputAction.CallbackContext context)
     {
+        if (!canMove) return;
         move = context.ReadValue<Vector2>();
     }
 
@@ -49,18 +62,24 @@ public class PlayerController : MonoBehaviour
         }
 
         movePlayer();
-
     }
+
     public void movePlayer()
     {
-        Vector3 movement = new Vector3(move.x, 0f, move.y);
+        Vector3 movement = Vector3.zero;
 
-        if (Mathf.Abs(move.x) > Mathf.Abs(move.y))
-            movement.z = 0f;
-        else
-            movement.x = 0f;
+        if (canMove)
+        {
+            movement = new Vector3(move.x, 0f, move.y);
 
-        if (movement != Vector3.zero) transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
+            if (Mathf.Abs(move.x) > Mathf.Abs(move.y))
+                movement.z = 0f;
+            else
+                movement.x = 0f;
+
+            if (movement != Vector3.zero)
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
+        }
 
         Vector3 velocity = movement * speed;
         velocity.y = playerVelocity.y;
