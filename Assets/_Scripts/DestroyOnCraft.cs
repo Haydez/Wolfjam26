@@ -8,9 +8,9 @@ public class DestroyOnCraft : MonoBehaviour
     private void OnEnable()
     {
         if (objectToDelete1 != null)
-            Destroy(objectToDelete1);
+            objectToDelete1.SetActive(false);
 
         if (objectToDelete2 != null)
-            Destroy(objectToDelete2);
+            objectToDelete2.SetActive(false);
     }
 }

@@ -4,17 +4,15 @@ public class GoldPuzzleManager : MonoBehaviour
 {
     public LockerAnswerSlot obj1;
 
-    public GameObject gold;
+    public GameObject coin;
+    private bool isActive = false;
 
     private void Update()
     {
-        if (obj1.isMatch)
+        if (obj1.isMatch && !isActive)
         {
-            gold.SetActive(true);
-        }
-        else
-        {
-            return;
+            coin.SetActive(true);
+            isActive = true;
         }
     }
 }

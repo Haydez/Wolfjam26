@@ -5,21 +5,23 @@ public class CoinCounter : MonoBehaviour
     public GameObject objectToActivate;
 
     public int requiredCoins = 3;
+    [SerializeField] private int coinCount = 0;
+
+    private void Start()
+    {
+        coinCount = 0;
+    }
 
     private void Update()
     {
-        int coinCount = 0;
-
-        foreach (Transform child in transform)
+        if((transform.childCount > coinCount) && transform.GetChild(coinCount).CompareTag("Coin"))
         {
-            if (child.CompareTag("Coin"))
-            {
-                coinCount++;
-                child.gameObject.SetActive(false);
-            }
+            transform.GetChild(coinCount).gameObject.SetActive(false);
+            coinCount++;
         }
 
-        if (coinCount >= requiredCoins)
+
+        if (transform.childCount == 3 && !objectToActivate.activeSelf)
         {
             objectToActivate.SetActive(true);
         }
