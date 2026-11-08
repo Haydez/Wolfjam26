@@ -13,6 +13,8 @@ TagManager:
   - 7
   - 8
   - 9
+  - Coin
+  - Gold
   layers:
   - Default
   - TransparentFX

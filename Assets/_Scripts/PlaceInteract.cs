@@ -16,7 +16,6 @@ public class PlaceInteract : Interaction
             heldObject.transform.SetParent(target.transform);
             heldObject.transform.localPosition = Vector3.zero;
             heldObject.transform.localRotation = Quaternion.identity;
-            heldObject.transform.localScale = Vector3.one;
 
             player.isHolding = false;
             player.heldObj = null;

@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         move = context.ReadValue<Vector2>();
     }
 
-    // space to interact
+    // space or e to interact
     public void OnInteract(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
