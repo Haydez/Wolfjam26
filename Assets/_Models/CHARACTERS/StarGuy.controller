@@ -270,6 +270,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: Emote
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 1
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -344,16 +350,16 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -4498986339389175017}
-    m_Position: {x: 440, y: 150, z: 0}
+    m_Position: {x: 470, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1116929131892767732}
-    m_Position: {x: 390, y: -40, z: 0}
+    m_Position: {x: 420, y: -30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5952229107570314106}
-    m_Position: {x: 240, y: 220, z: 0}
+    m_Position: {x: 220, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3679547047108980556}
-    m_Position: {x: 740, y: 260, z: 0}
+    m_Position: {x: 630, y: 200, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
