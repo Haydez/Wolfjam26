@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596e78bc42dd47746b5c2aca0af9beb9, type: 3}
+  m_Name: ElephantIntro
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  themeTrack: {fileID: 0}
+  lines:
+  - characterName: THE Elephant
+    portrait: {fileID: 21300000, guid: 6935c4810d074ef4380cd579f395aefc, type: 3}
+    text: Hehehehe
+    typingSound: {fileID: 8300000, guid: 596765ced2049be41b0414dd76260e5e, type: 3}
+    effect: 0
+    typingSpeed: 0.03
+    expression: 0
+    emoteTrigger: 
+  - characterName: THE Elephant
+    portrait: {fileID: 21300000, guid: 6935c4810d074ef4380cd579f395aefc, type: 3}
+    text: I am THE Elephant. The most famous Elephant around.
+    typingSound: {fileID: 8300000, guid: 596765ced2049be41b0414dd76260e5e, type: 3}
+    effect: 0
+    typingSpeed: 0.03
+    expression: 0
+    emoteTrigger: 
+  - characterName: THE Elephant
+    portrait: {fileID: 21300000, guid: 6935c4810d074ef4380cd579f395aefc, type: 3}
+    text: You are THE Star Diva! The most famous person around!
+    typingSound: {fileID: 8300000, guid: 596765ced2049be41b0414dd76260e5e, type: 3}
+    effect: 0
+    typingSpeed: 0.03
+    expression: 0
+    emoteTrigger: 
+  - characterName: THE Elephant
+    portrait: {fileID: 21300000, guid: 6935c4810d074ef4380cd579f395aefc, type: 3}
+    text: You're trying to get even MORE visibility? More than me? Good luck with
+      that!
+    typingSound: {fileID: 8300000, guid: 596765ced2049be41b0414dd76260e5e, type: 3}
+    effect: 1
+    typingSpeed: 0.03
+    expression: 0
+    emoteTrigger: 
+  - characterName: THE Elephant
+    portrait: {fileID: 21300000, guid: 6935c4810d074ef4380cd579f395aefc, type: 3}
+    text: Only a real STAR can achieve that!
+    typingSound: {fileID: 8300000, guid: 596765ced2049be41b0414dd76260e5e, type: 3}
+    effect: 1
+    typingSpeed: 0.03
+    expression: 0
+    emoteTrigger: 
