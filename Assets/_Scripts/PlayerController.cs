@@ -15,7 +15,25 @@ public class PlayerController : MonoBehaviour
     public bool isHolding;
     public GameObject heldObj;
 
+    [Header("Animation")]
+    public Animator animator; // Reference to your Animator component
+
     private bool canMove = true;
+    private Vector2 lastMoveDirection = Vector2.down; // Remembers the last faced direction
+
+    void Start()
+    {
+        // Automatically find the Animator on this object or its children if unassigned
+        if (animator == null)
+        {
+            animator = GetComponentInChildren<Animator>();
+
+            if (animator == null)
+            {
+                Debug.LogWarning("[PlayerController] No Animator component found on the player or any child objects!", this);
+            }
+        }
+    }
 
     // Explicitly set player movement control on or off
     public void SetControl(bool state)
@@ -24,6 +42,7 @@ public class PlayerController : MonoBehaviour
         if (!canMove)
         {
             move = Vector2.zero; // Reset input so player stops immediately
+            if (animator != null) animator.speed = 0f; // Pause animation when frozen
         }
     }
 
@@ -78,12 +97,61 @@ public class PlayerController : MonoBehaviour
                 movement.x = 0f;
 
             if (movement != Vector3.zero)
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.15f);
+            {
+                // Unpause animator and set correct directional walking state
+                if (animator != null) animator.speed = 1f;
+
+                // Store the last active movement direction
+                lastMoveDirection = new Vector2(movement.x, movement.z).normalized;
+                UpdateAnimatorDirection(lastMoveDirection);
+            }
+            else
+            {
+                // Pause animator so it holds the current frame of the last played direction
+                if (animator != null) animator.speed = 0f;
+            }
+        }
+        else
+        {
+            if (animator != null) animator.speed = 0f;
         }
 
         Vector3 velocity = movement * speed;
         velocity.y = playerVelocity.y;
 
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    private void UpdateAnimatorDirection(Vector2 direction)
+    {
+        if (animator == null) return;
+
+        ResetAnimationBools();
+
+        // Determine dominant direction and set its corresponding bool
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            if (direction.x > 0)
+                animator.SetBool("Right", true);
+            else
+                animator.SetBool("Left", true);
+        }
+        else
+        {
+            if (direction.y > 0)
+                animator.SetBool("Up", true);
+            else
+                animator.SetBool("Down", true);
+        }
+    }
+
+    private void ResetAnimationBools()
+    {
+        if (animator == null) return;
+
+        animator.SetBool("Up", false);
+        animator.SetBool("Down", false);
+        animator.SetBool("Left", false);
+        animator.SetBool("Right", false);
     }
 }
