@@ -11,7 +11,12 @@ public class BeanstalkCutscene : MonoBehaviour
     [SerializeField] private Behaviour[] disableDuringCutscene;
     [SerializeField] private bool allowSkip = true;
 
-    /// <summary>Fired when the cutscene finishes or is skipped.</summary>
+    [Header("Music")]
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioClip newMusic;
+    [Tooltip("Off: music switches when the cutscene starts. On: it switches when the cutscene ends.")]
+    [SerializeField] private bool swapMusicAfterVideo = false;
+    
     public event Action OnCutsceneFinished;
 
     private bool shouldPlay;
@@ -20,9 +25,7 @@ public class BeanstalkCutscene : MonoBehaviour
     private void Awake()
     {
         var inv = InventoryManager.Instance;
-
-        // Checked in Awake so it runs before TreeSpawner.Start
-        // (which may clear the items if "Consume Items" is ticked).
+        
         shouldPlay = SceneManager.GetActiveScene().name == sceneName
                      && inv.HasAllItems()
                      && !inv.BeanstalkCutscenePlayed;
@@ -30,6 +33,12 @@ public class BeanstalkCutscene : MonoBehaviour
 
     private void Start()
     {
+        if (InventoryManager.Instance.BeanstalkCutscenePlayed)
+        {
+            SwapMusic();
+            return;
+        }
+
         if (videoPlayer == null)
         {
             Debug.LogWarning("BeanstalkCutscene: assign a Video Player in the Inspector.", this);
@@ -41,8 +50,7 @@ public class BeanstalkCutscene : MonoBehaviour
         videoPlayer.Stop();
 
         if (!shouldPlay) return;
-
-        // Draw the video over the whole screen, in front of the scene.
+        
         videoPlayer.renderMode = VideoRenderMode.CameraNearPlane;
         if (videoPlayer.targetCamera == null) videoPlayer.targetCamera = Camera.main;
         videoPlayer.targetCameraAlpha = 1f;
@@ -52,6 +60,8 @@ public class BeanstalkCutscene : MonoBehaviour
         SetControlsEnabled(false);
         isPlaying = true;
         InventoryManager.Instance.BeanstalkCutscenePlayed = true;
+
+        if (!swapMusicAfterVideo) SwapMusic();
 
         videoPlayer.Play();
     }
@@ -70,10 +80,23 @@ public class BeanstalkCutscene : MonoBehaviour
         isPlaying = false;
 
         videoPlayer.loopPointReached -= HandleVideoFinished;
-        videoPlayer.Stop();               // stops drawing the video, revealing the scene + tree
+        videoPlayer.Stop();               
+
+        if (swapMusicAfterVideo) SwapMusic();
 
         SetControlsEnabled(true);
         OnCutsceneFinished?.Invoke();
+    }
+
+    private void SwapMusic()
+    {
+        if (musicSource == null || newMusic == null) return;
+        if (musicSource.clip == newMusic && musicSource.isPlaying) return;
+
+        musicSource.Stop();
+        musicSource.clip = newMusic;
+        musicSource.loop = true;
+        musicSource.Play();
     }
 
     private void SetControlsEnabled(bool enabled)
@@ -82,8 +105,7 @@ public class BeanstalkCutscene : MonoBehaviour
         foreach (var b in disableDuringCutscene)
             if (b != null) b.enabled = enabled;
     }
-
-    // Space or Escape skips. Works with both the new Input System and the old Input Manager.
+    
     private static bool SkipPressed()
     {
 #if ENABLE_INPUT_SYSTEM
