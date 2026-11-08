@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596e78bc42dd47746b5c2aca0af9beb9, type: 3}
+  m_Name: FloobaGeneric
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  themeTrack: {fileID: 0}
+  lines:
+  - characterName: Flooba
+    portrait: {fileID: 21300000, guid: c8d20ce36bf1c714d98119ef5e91f7b9, type: 3}
+    text: Hahaha this place is so much cooler than wizard clown school
+    typingSound: {fileID: 8300000, guid: 8f0c55c958da5a248954017f890b32c8, type: 3}
+    effect: 1
+    typingSpeed: 0.03
+    expression: 0
+    emoteTrigger: 
+  - characterName: Flooba
+    portrait: {fileID: 21300000, guid: c8d20ce36bf1c714d98119ef5e91f7b9, type: 3}
+    text: Huh? A shovel? Is this for that visibility thing you're tryna do? You're
+      so funny star gazer!
+    typingSound: {fileID: 8300000, guid: 8f0c55c958da5a248954017f890b32c8, type: 3}
+    effect: 0
+    typingSpeed: 0.03
+    expression: 0
+    emoteTrigger: 
+  - characterName: Flooba
+    portrait: {fileID: 21300000, guid: c8d20ce36bf1c714d98119ef5e91f7b9, type: 3}
+    text: I'LL SEE YOU AROUND STAR GUY!
+    typingSound: {fileID: 8300000, guid: 8f0c55c958da5a248954017f890b32c8, type: 3}
+    effect: 2
+    typingSpeed: 0.02
+    expression: 0
+    emoteTrigger: 

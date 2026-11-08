@@ -4,10 +4,6 @@ using UnityEngine.InputSystem;
 
 public class NPCInteraction : MonoBehaviour
 {
-    [Header("Interaction Type")]
-    [Tooltip("Check if this is a character that should snap to face the player. Uncheck for environment objects.")]
-    public bool isCharacter = true;
-
     [Header("Input Settings")]
     [Tooltip("Reference to your Input Action Asset for interaction.")]
     public InputActionReference interactActionReference;
@@ -83,12 +79,6 @@ public class NPCInteraction : MonoBehaviour
             playerController.SetControl(false);
         }
 
-        // If it's a character, snap to face the player in 4 cardinal directions
-        if (isCharacter)
-        {
-            SnapToFacePlayer(playerObj.transform.position);
-        }
-
         DialogueData chosenDialogue = GetApplicableDialogue();
 
         if (chosenDialogue != null)
@@ -113,29 +103,6 @@ public class NPCInteraction : MonoBehaviour
         }
 
         isCurrentlyTalking = false;
-    }
-
-    void SnapToFacePlayer(Vector3 playerPosition)
-    {
-        Vector3 directionToPlayer = playerPosition - transform.position;
-        directionToPlayer.y = 0; // Ignore height differences
-
-        if (directionToPlayer == Vector3.zero) return;
-
-        if (Mathf.Abs(directionToPlayer.x) > Mathf.Abs(directionToPlayer.z))
-        {
-            if (directionToPlayer.x > 0)
-                transform.rotation = Quaternion.Euler(0, 90, 0);
-            else
-                transform.rotation = Quaternion.Euler(0, 270, 0);
-        }
-        else
-        {
-            if (directionToPlayer.z > 0)
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-            else
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
     }
 
     DialogueData GetApplicableDialogue()
