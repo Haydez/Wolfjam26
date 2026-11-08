@@ -350,4 +350,12 @@ public class SplitRevealTransition : MonoBehaviour
         x = Mathf.Clamp01(x);
         return x < 0.5f ? 4f * x * x * x : 1f - Mathf.Pow(-2f * x + 2f, 3f) / 2f;
     }
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void ResetStatics()
+    {
+        Instance = null;
+        IsTransitioning = false;
+        TransitionStarted = null;
+        TransitionFinished = null;
+    }
 }

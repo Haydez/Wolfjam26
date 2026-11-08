@@ -231,4 +231,12 @@ public class PixelateTransition : MonoBehaviour
         rt.anchorMax = Vector2.one;
         rt.offsetMin = rt.offsetMax = Vector2.zero;
     }
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void ResetStatics()
+    {
+        Instance = null;
+        IsTransitioning = false;
+        TransitionStarted = null;
+        TransitionFinished = null;
+    }
 }

@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class StairTeleporter : MonoBehaviour
 {
     [Tooltip("Empty GameObject marking where the player arrives. Its blue Z arrow is the facing direction.")]
@@ -13,8 +12,24 @@ public class StairTeleporter : MonoBehaviour
     [SerializeField] float cooldown = 0.5f;
 
     static float readyTime; // shared by every StairTeleporter
+    
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void ResetStatics()
+    {
+        readyTime = 0f;
+    }
+
+    void OnDisable()
+    {
+        SplitRevealTransition.TransitionFinished -= OnFinished;
+    }
 
     void OnTriggerEnter(Collider other)
+    {
+        TryUse(other.transform);
+    }
+    
+    void OnTriggerStay(Collider other)
     {
         TryUse(other.transform);
     }
@@ -41,7 +56,6 @@ public class StairTeleporter : MonoBehaviour
             return;
         }
 
-        // Block re-triggering until well after the transition finishes.
         readyTime = float.MaxValue;
         SplitRevealTransition.PlayInScene(() => Teleport(player));
         SplitRevealTransition.TransitionFinished += OnFinished;
@@ -55,15 +69,14 @@ public class StairTeleporter : MonoBehaviour
 
     void Teleport(Transform player)
     {
-        // A CharacterController overwrites manual position changes unless it's
-        // switched off for the move.
+
         var controller = player.GetComponent<CharacterController>();
         if (controller != null) controller.enabled = false;
 
         var body = player.GetComponent<Rigidbody>();
         if (body != null && !body.isKinematic)
         {
-            body.linearVelocity = Vector3.zero; 
+            body.linearVelocity = Vector3.zero;   
             body.angularVelocity = Vector3.zero;
         }
 
@@ -76,8 +89,6 @@ public class StairTeleporter : MonoBehaviour
         if (controller != null) controller.enabled = true;
     }
 
-    // Checks the touched object and its parents, so it still works if the
-    // collider is on a child of the player.
     Transform FindPlayer(Transform t)
     {
         for (; t != null; t = t.parent)
@@ -86,8 +97,7 @@ public class StairTeleporter : MonoBehaviour
         }
         return null;
     }
-
-    // Draws a line to the destination in the Scene view when selected.
+    
     void OnDrawGizmosSelected()
     {
         if (destination == null) return;

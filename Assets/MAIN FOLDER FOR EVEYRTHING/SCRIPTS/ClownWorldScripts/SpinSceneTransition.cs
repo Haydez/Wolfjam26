@@ -258,4 +258,12 @@ public class BatSpinTransition : MonoBehaviour
         float m = x - 1f;
         return 1f + c3 * m * m * m + c1 * m * m;
     }
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void ResetStatics()
+    {
+        Instance = null;
+        IsTransitioning = false;
+        TransitionStarted = null;
+        TransitionFinished = null;
+    }
 }
