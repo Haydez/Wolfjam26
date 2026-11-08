@@ -109,39 +109,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Blood Splatter_0
+      name: Blood Splatter_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 320
-        width: 320
-        height: 320
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 63725dd6c5f24f630800000000000000
-      internalID: 3959842046391691062
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Blood Splatter_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 320
-        height: 320
+        x: 5
+        y: 354
+        width: 310
+        height: 267
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,8 +141,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e30d6ece9db3a64995bb875fa86c45f
-      internalID: 1768488205
+      spriteID: 0f9994fe25340d748b5699d10b3148f9
+      internalID: -1919241750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood Splatter_8
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 552
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 774bc2b29733f6f42b5ae861bfc5607d
+      internalID: -1294340253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood Splatter_15
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 39
+        width: 310
+        height: 267
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77f5c49445f0f2d4cb1c5c30bee7252b
+      internalID: -480512312
       vertices: []
       indices: 
       edges: []
@@ -170,10 +205,32 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":320.0,"y":320.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Blood Splatter_0: 3959842046391691062
       Blood Splatter_1: 1768488205
+      Blood Splatter_10: -830963086
+      Blood Splatter_11: 1525161399
+      Blood Splatter_12: 640714392
+      Blood Splatter_13: 1976117976
+      Blood Splatter_14: 12045660
+      Blood Splatter_15: -480512312
+      Blood Splatter_16: -1514895802
+      Blood Splatter_17: -398110070
+      Blood Splatter_18: -1447691886
+      Blood Splatter_19: 1514500384
+      Blood Splatter_2: -986682786
+      Blood Splatter_20: 1985872292
+      Blood Splatter_21: -443991478
+      Blood Splatter_22: -2020699771
+      Blood Splatter_23: 190289928
+      Blood Splatter_3: -1919241750
+      Blood Splatter_4: 459450492
+      Blood Splatter_5: 741954728
+      Blood Splatter_6: -1158906367
+      Blood Splatter_7: 598160976
+      Blood Splatter_8: -1294340253
+      Blood Splatter_9: -849339357
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
