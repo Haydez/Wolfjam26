@@ -2928,7 +2928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6317578925029434746, guid: b9815b2a739f39d43984c3ca1b0f7ffa, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -3698,7 +3698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SceneDoor
   sceneAsset: {fileID: 102900000, guid: ef1773f144729384ab5731852e7be031, type: 3}
   nextScene: CaveWorld
-  transition: 1
+  transition: 2
   playerTag: Player
 --- !u!54 &994987847
 Rigidbody:
@@ -3916,7 +3916,7 @@ MonoBehaviour:
   dipColor: {r: 0, g: 0, b: 0, a: 1}
   dipAmount: 0
   liveEntry: 1
-  sound: {fileID: 8300000, guid: 722edaa50cda2fa4cb3c4e8c6bea8455, type: 3}
+  sound: {fileID: 8300000, guid: 457399f99860d944caeca6dda846a3ae, type: 3}
   soundVolume: 1
 --- !u!114 &1098696904
 MonoBehaviour:
@@ -3941,7 +3941,7 @@ MonoBehaviour:
   edgeShadowWidth: 24
   edgeShadowColor: {r: 0, g: 0, b: 0, a: 0.6}
   pushInAmount: 0.08
-  sound: {fileID: 8300000, guid: 457399f99860d944caeca6dda846a3ae, type: 3}
+  sound: {fileID: 8300000, guid: 722edaa50cda2fa4cb3c4e8c6bea8455, type: 3}
   soundVolume: 1
 --- !u!1 &1122062745
 GameObject:
