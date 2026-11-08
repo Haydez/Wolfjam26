@@ -1053,6 +1053,8 @@ GameObject:
   - component: {fileID: 80177957}
   - component: {fileID: 80177956}
   - component: {fileID: 80177958}
+  - component: {fileID: 80177960}
+  - component: {fileID: 80177959}
   m_Layer: 0
   m_Name: STOP MAN-1.png
   m_TagString: Untagged
@@ -1153,8 +1155,46 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.30121183, y: 0.48, z: 0.2}
+  m_Size: {x: 0.30121183, y: 0.48, z: 0.04}
   m_Center: {x: 0.025316477, y: 0, z: 0}
+--- !u!114 &80177959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80177953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f37e5c192bc8b45b63db4e4eba2dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
+  interactActionReference: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  firstMeetingDialogue: {fileID: 11400000, guid: 6cd380edd559ad1418f8bfee4d6405a1, type: 2}
+  genericDialogues:
+  - {fileID: 11400000, guid: 2fe3a5faf0ac8f44f975a04162fa355d, type: 2}
+  npcName: 
+--- !u!65 &80177960
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80177953}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3, y: 0.48, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &83385893 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bbee8487699a074f862cea4809eb438, type: 3}
@@ -15871,6 +15911,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1638712152}
   - component: {fileID: 1638712151}
+  - component: {fileID: 1638712154}
+  - component: {fileID: 1638712153}
   m_Layer: 0
   m_Name: rat dealer-1.png
   m_TagString: Untagged
@@ -15952,6 +15994,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1638712153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638712150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f37e5c192bc8b45b63db4e4eba2dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
+  interactActionReference: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  firstMeetingDialogue: {fileID: 11400000, guid: b6ed38ef5b459194ba572972f82b3c10, type: 2}
+  genericDialogues:
+  - {fileID: 11400000, guid: b6ed38ef5b459194ba572972f82b3c10, type: 2}
+  npcName: 
+--- !u!65 &1638712154
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638712150}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.48, y: 1.17, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1639057772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19367,6 +19447,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1929597748}
   - component: {fileID: 1929597747}
+  - component: {fileID: 1929597751}
+  - component: {fileID: 1929597750}
+  - component: {fileID: 1929597749}
   m_Layer: 0
   m_Name: Danceman
   m_TagString: Untagged
@@ -19448,6 +19531,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -5.18, z: 0}
+--- !u!114 &1929597749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929597746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f37e5c192bc8b45b63db4e4eba2dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
+  interactActionReference: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  firstMeetingDialogue: {fileID: 11400000, guid: 4bd330e0746109447aff4481c842a0c3, type: 2}
+  genericDialogues:
+  - {fileID: 11400000, guid: 8e08d52d0f33d614aa744292c4396d97, type: 2}
+  npcName: 
+--- !u!65 &1929597750
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929597746}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.2, y: 3.2, z: 1.27}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &1929597751
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929597746}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.2, y: 3.2, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1937405032 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c4c941dff732ef49a0bc52d4eb0a4f2, type: 3}
@@ -19685,7 +19827,7 @@ MonoBehaviour:
   textDisplay: {fileID: 982556729}
   nameDisplay: {fileID: 145079939}
   portraitDisplay: {fileID: 1673385622}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1449479058}
   musicSource: {fileID: 0}
   pitchVariation: 0.2
   dialogueHappening: 0

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596e78bc42dd47746b5c2aca0af9beb9, type: 3}
+  m_Name: RatDealerIntro
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  themeTrack: {fileID: 0}
+  lines:
+  - characterName: STOP MAN
+    portrait: {fileID: 21300000, guid: 5f718fe2fc77fcb4bb7c311ba9bdf2e7, type: 3}
+    text: HELLO STAR THIRSTER! I HAVE MINERAL WATER. PUT 3 COIN DOLLARS IN MY PIGGY
+      BANK HAHAHAHAA
+    typingSound: {fileID: 8300000, guid: d5a533322c436074c8066f5b26268a7a, type: 3}
+    effect: 0
+    typingSpeed: 0.03
+    expression: 0
+    emoteTrigger: 
+  - characterName: STOP MAN
+    portrait: {fileID: 21300000, guid: 5f718fe2fc77fcb4bb7c311ba9bdf2e7, type: 3}
+    text: YOU'RE SO VISIBLE AND POPULAR I KNOW YOU LOVE MINERAL WATER
+    typingSound: {fileID: 8300000, guid: d5a533322c436074c8066f5b26268a7a, type: 3}
+    effect: 0
+    typingSpeed: 0.03
+    expression: 0
+    emoteTrigger: 
