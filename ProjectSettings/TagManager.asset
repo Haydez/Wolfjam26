@@ -15,6 +15,9 @@ TagManager:
   - 9
   - Coin
   - Gold
+  - Stick
+  - Shovel
+  - ShovelComp
   layers:
   - Default
   - TransparentFX
